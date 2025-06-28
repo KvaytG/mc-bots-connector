@@ -6,6 +6,11 @@ public class MinecraftServer {
     private final int port;
 
     public MinecraftServer(String host, int port) {
+        if (port < 1 || port > 65535) {
+            throw new IllegalArgumentException(
+                    "Invalid port number: " + port + ". Port must be between 1 and 65535."
+            );
+        }
         this.host = host;
         this.port = port;
     }
